@@ -6,7 +6,7 @@ BASE=$(PWD)
 TRG=../njm_app_bin
 
 export FGLRESOURCEPATH=$(BASE)/etc
-export FGLLDPATH=$(TRG)
+export FGLLDPATH=$(TRG):$(GREDIR)/lib
 
 all: $(TRG)/$(PROG).42r
 
