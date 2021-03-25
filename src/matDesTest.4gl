@@ -2,9 +2,7 @@
 -- By: Neil J Martin ( neilm@4js.com )
 
 IMPORT os
-IMPORT FGL g2_lib
-IMPORT FGL g2_about
-IMPORT FGL g2_appInfo
+IMPORT FGL g2_lib.*
 
 CONSTANT C_PRGDESC = "Material Design Test"
 CONSTANT C_PRGAUTH = "Neil J.Martin"
@@ -42,7 +40,7 @@ MAIN
 	DEFINE l_appInfo g2_appInfo.appInfo
 
 	CALL l_appInfo.progInfo(C_PRGDESC, C_PRGAUTH, C_PRGVER, C_PRGICON)
-	CALL g2_lib.g2_init(ARG_VAL(1), "matDesTest")
+	CALL g2_core.g2_init(ARG_VAL(1), "matDesTest")
 --  CALL ui.Interface.setImage("fa-bug")
 	FOR X = 1 TO 15
 		LET l_arr[x].col1 = "Row " || x
@@ -76,9 +74,9 @@ MAIN
 			BEFORE ROW
 				DISPLAY SFMT("On row %1 of %2", DIALOG.getCurrentRow("arr2"), l_listView.getLength()) TO tab2info
 			ON UPDATE
-				CALL g2_lib.g2_winMessage("Update", "Update not available!", "exclamation")
+				CALL g2_core.g2_winMessage("Update", "Update not available!", "exclamation")
 			ON DELETE
-				CALL g2_lib.g2_winMessage("Delete", "Delete not available!", "exclamation")
+				CALL g2_core.g2_winMessage("Delete", "Delete not available!", "exclamation")
 		END DISPLAY
 		DISPLAY ARRAY l_listView TO arr3.*
 			BEFORE ROW
@@ -93,7 +91,7 @@ MAIN
 		ON ACTION win
 			CALL win()
 		ON ACTION win_mess
-			CALL g2_lib.g2_winMessage("Info", "Testing", "information")
+			CALL g2_core.g2_winMessage("Info", "Testing", "information")
 		ON ACTION arr2
 			CALL DIALOG.nextField("lvcol1")
 		ON ACTION arr3
