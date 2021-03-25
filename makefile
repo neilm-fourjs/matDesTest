@@ -1,7 +1,6 @@
 
 PROJ=matDesTest
 BASE=$(PWD)
-TRG=../njm_app_bin
 
 export FGLRESOURCEPATH=$(BASE)/etc
 
@@ -23,8 +22,8 @@ include ./Make_g4.inc
 update:
 	git pull
 
-run: $(TRG)/$(PROJ).42m
-	cd $(TRG) && fglrun $(PROJ)
+run: $(BIN)/$(PROJ).42m
+	cd $(BIN) && fglrun $(PROJ)
 
 #clean:
 #	gsmake -c $(PROJ).4pw
