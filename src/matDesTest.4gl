@@ -31,6 +31,12 @@ MAIN
 		col2 SMALLINT,
 		img STRING
 	END RECORD
+	DEFINE l_arr4 DYNAMIC ARRAY OF RECORD
+		col1 STRING,
+		col2 SMALLINT,
+		col3 DATE,
+		img STRING
+	END RECORD
 	DEFINE l_listview DYNAMIC ARRAY OF RECORD
 		col1 STRING,
 		col2 STRING,
@@ -46,6 +52,10 @@ MAIN
 		LET l_arr[x].col1 = "Row " || x
 		LET l_arr[x].col2 = x
 		LET l_arr[x].img = C_IMG
+		LET l_arr4[x].col1 = "Row " || x
+		LET l_arr4[x].col2 = x
+		LET l_arr4[x].col3 = TODAY
+		LET l_arr4[x].img = C_IMG
 		LET l_listView[x].col1 = "This is row " || x
 		LET l_listView[x].col2 = "this is a like an information line"
 		LET l_listView[x].img = C_IMG
@@ -70,6 +80,10 @@ MAIN
 		END INPUT
 		DISPLAY ARRAY l_arr TO arr1.*
 		END DISPLAY
+		DISPLAY ARRAY l_arr4 TO arr4.*
+			BEFORE ROW
+				DISPLAY SFMT("On row %1 of %2", DIALOG.getCurrentRow("arr4"), l_arr4.getLength()) TO tab4info
+		END DISPLAY
 		DISPLAY ARRAY l_listView TO arr2.*
 			BEFORE ROW
 				DISPLAY SFMT("On row %1 of %2", DIALOG.getCurrentRow("arr2"), l_listView.getLength()) TO tab2info
@@ -90,6 +104,8 @@ MAIN
 			ERROR "Error Message"
 		ON ACTION win
 			CALL win()
+		ON ACTION cmdlink
+			CALL g2_core.g2_winMessage("Info", "Testing", "information")
 		ON ACTION win_mess
 			CALL g2_core.g2_winMessage("Info", "Testing", "information")
 		ON ACTION arr2

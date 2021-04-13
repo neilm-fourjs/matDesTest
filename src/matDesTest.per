@@ -72,12 +72,13 @@ GRID
 [lab3|f003           ]
 [lab4|f004      :a   ]
 [: :b:but1  :msg     :err   : :]
+[lcmdlnk|cmdlink               ]
 <G g1                          >
 [lab5|f005         ]
 [lab6|f006           ]
 <                              >
  more text outside of group.
-<T tab                         >
+<T tab1                        >
  [a001               |a002    ]
  [a001               |a002    ]
  [a001               |a002    ]
@@ -106,7 +107,8 @@ Style File:
 }
 END -- GRID
 END -- PAGE
-PAGE f2p2 (TEXT="ListView", IMAGE="smiley", ACTION=arr2)
+
+PAGE f2p2 (TEXT="ListView Table", IMAGE="smiley", ACTION=arr2)
 GRID
 {
 <T tab2                                        >
@@ -121,9 +123,27 @@ GRID
  [tab2info                                    ]
 }
 END -- GRID
-
 END -- PAGE
-PAGE f2p3 (TEXT="Table 2", IMAGE="smiley", ACTION=arr3)
+
+PAGE f2p3 (TEXT="FlipView Table", IMAGE="smiley", ACTION=arr4)
+GRID
+{
+<T tab4                                        >
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+ [t401         |t402    |t403          |t404  ]
+<                                              >
+ [tab4info                                    ]
+}
+END -- GRID
+END -- PAGE
+
+PAGE f2p4 (TEXT="Traditional Table", IMAGE="smiley", ACTION=arr3)
 GRID
 {
 <T tab3                                        >
@@ -139,7 +159,8 @@ GRID
 }
 END -- GRID
 END -- PAGE
-PAGE f2p4 (TEXT="A Group", IMAGE="smiley")
+
+PAGE f2p5 (TEXT="A Group", IMAGE="smiley")
 GRID
 {
 <G "A Group"                               >
@@ -202,6 +223,9 @@ LABEL lab4 : lab4, TEXT=%"Readonly:",JUSTIFY=RIGHT;
 LABEL lab5 : lab5, TEXT=%"Live Field:",JUSTIFY=RIGHT;
 LABEL lab6 : lab6, TEXT=%"Dead Field:",JUSTIFY=RIGHT;
 
+LABEL lcmdlnk : lcmdlnk, TEXT="Command Link:", JUSTIFY=RIGHT;
+BUTTON cmdlink : cmdlink, TEXT="Command Link Button", COMMENT="This doesn't do much yet", IMAGE="fa-comments-o", STYLE="commandLink";
+
 BUTTONEDIT f001 = FORMONLY.fld1, ACTION=win;
 DATEEDIT f002 = FORMONLY.fld2;
 COMBOBOX f003 = FORMONLY.fld3, ITEMS=("Red","Blue","Green"), PLACEHOLDER=%"Pick a Colour";
@@ -215,6 +239,7 @@ IMAGE logo : logo, IMAGE="logo_dark", SIZEPOLICY=INITIAL,STYLE="noborder center"
 IMAGE logo2 : logo2, IMAGE="logo_light", SIZEPOLICY=INITIAL,STYLE="noborder center";
 
 -- normal table
+TABLE tab1 : tab1, STYLE="table3";
 a001 = FORMONLY.col1, TITLE="Title1", IMAGECOLUMN=img;
 a002 = FORMONLY.col2, TITLE="Fld2";
 PHANTOM FORMONLY.img;
@@ -236,6 +261,14 @@ t202 = FORMONLY.lvcol2, SCROLL;
 PHANTOM FORMONLY.lvimg;
 LABEL tab2info = FORMONLY.tab2info, STYLE="center";
 
+-- arr4 table
+TABLE tab4 : tab4, STYLE="flipview";
+t401 = FORMONLY.a4col1, SCROLL, TITLE="Column 1";
+t402 = FORMONLY.a4col2, SCROLL, TITLE="Column 2";
+t403 = FORMONLY.a4col3, SCROLL, TITLE="Column 3";
+IMAGE t404 = FORMONLY.a4img, TITLE="Column 4";
+LABEL tab4info = FORMONLY.tab4info, STYLE="center";
+
 -- arr2 table
 TABLE tab3 : tab3, STYLE="table3";
 t301 = FORMONLY.a3col1, SCROLL, IMAGECOLUMN=a3img, TITLE="Column 1";
@@ -247,3 +280,4 @@ INSTRUCTIONS
 SCREEN RECORD arr1 ( FORMONLY.col1 THRU FORMONLY.img )
 SCREEN RECORD arr2 ( FORMONLY.lvcol1 THRU FORMONLY.lvimg )
 SCREEN RECORD arr3 ( FORMONLY.a3col1 THRU FORMONLY.a3img )
+SCREEN RECORD arr4 ( FORMONLY.a4col1 THRU FORMONLY.a4img )
