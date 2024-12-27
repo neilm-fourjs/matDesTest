@@ -42,7 +42,7 @@ Property of Four Js*
 	<ActionDefault name="dialogtouched" validate="no" defaultView="no"	contextMenu="no"/>
 
 	<ActionDefault name="about" text="About" image="about" acceleratorName="Shift-f1" contextMenu="no"/>
-	<ActionDefault name="quit" text="Quit" image="quit" acceleratorName="f11" contextMenu="no"/>
+	<ActionDefault name="quit" text="Quit" image="quit" acceleratorName="f11" acceleratorName2="Escape" contextMenu="no"/>
 	<ActionDefault name="new" image="new" text="Insert" acceleratorName="F3" contextMenu="no"/>
 	<ActionDefault name="getstock" acceleratorName="Control-F" image="find" comment="Select Stock Item"/>
 	<ActionDefault name="getcust" acceleratorName="Control-F" image="find" comment="Select Customer Item"/>
@@ -54,6 +54,7 @@ Property of Four Js*
 	
 	<ActionDefault name="testlogin" text="Test Login" image="fa-key" contextMenu="yes" acceleratorName="f12" />
 	<ActionDefault name="forgotten" text="Forgotten" image="fa-question" comment="Forgotten?" defaultView="no" contextMenu="no" />
+	<ActionDefault name="dumpenv" text="Dump Env" image="fa-cloud-download" comment="Dump Env to env.txt" defaultView="no" contextMenu="yes" />
 
 	<ActionDefault name="calendar_selection" text="eh!" defaultView="no" contextMenu="no" />
 	<ActionDefault name="prevmonth" text="eh!" defaultView="no" contextMenu="no" />
@@ -61,53 +62,53 @@ Property of Four Js*
 	<ActionDefault name="wc_debug" text="WC Debug" image="fa-bug" defaultView="yes" contextMenu="no" />
 
 
-	<ActionDefault name="prod" text="Products" image="fa-industry" contextMenu="no"/>
-	<ActionDefault name="cust" text="Customers" image="fa-cog" contextMenu="no"/>
-	<ActionDefault name="quote" text="Quotes" image="fa-bookmark" contextMenu="no"/>
-	<ActionDefault name="advanced" text="Advanced" image="fa-search" contextMenu="no"/>
-	<ActionDefault name="refresh" text="Refresh" image="fa-refresh" contextMenu="no"/>
-	<ActionDefault name="add" text="Add New" contextMenu="no"/>
-	<ActionDefault name="save" text="Save" contextMenu="no"/>
-	<ActionDefault name="clear" text="Clear changes" contextMenu="no"/>
-	<ActionDefault name="search" image="fa-search" contextMenu="no" acceleratorName="return"/>
+  <ActionDefault name="prod" text="Products" image="fa-industry" contextMenu="no"/>
+  <ActionDefault name="cust" text="Customers" image="fa-cog" contextMenu="no"/>
+  <ActionDefault name="quote" text="Quotes" image="fa-bookmark" contextMenu="no"/>
+  <ActionDefault name="advanced" text="Advanced" image="fa-search" contextMenu="no"/>
+  <ActionDefault name="refresh" text="Refresh" image="fa-refresh" contextMenu="no"/>
+  <ActionDefault name="add" text="Add New" contextMenu="no"/>
+  <ActionDefault name="save" text="Save" contextMenu="no"/>
+  <ActionDefault name="clear" text="Clear changes" contextMenu="no"/>
+  <ActionDefault name="search" image="fa-search" contextMenu="no" acceleratorName="return"/>
 
-	<ActionDefault name="f1" text="F1" acceleratorName="F1" contextMenu="no"/>
-	<ActionDefault name="f2" text="F2" acceleratorName="F2" contextMenu="no"/>
-	<ActionDefault name="f3" text="F3" acceleratorName="F3" contextMenu="no"/>
-	<ActionDefault name="f4" text="F4" acceleratorName="F4" contextMenu="no"/>
-	<ActionDefault name="f5" text="F5" acceleratorName="F5" contextMenu="no"/>
-	<ActionDefault name="f6" text="F6" acceleratorName="F6" contextMenu="no"/>
-	<ActionDefault name="f7" text="F7" acceleratorName="F7" contextMenu="no"/>
-	<ActionDefault name="f8" text="F8" acceleratorName="F8" contextMenu="no"/>
-	<ActionDefault name="f9" text="F9" acceleratorName="F9" contextMenu="no"/>
-	<ActionDefault name="f10" text="F10" acceleratorName="F10" contextMenu="no"/>
-	<ActionDefault name="f11" text="F11" acceleratorName="F11" contextMenu="no"/>
-	<ActionDefault name="f12" text="F12" acceleratorName="F12" contextMenu="no"/>
+  <ActionDefault name="f1" text="F1" acceleratorName="F1" contextMenu="no"/>
+  <ActionDefault name="f2" text="F2" acceleratorName="F2" contextMenu="no"/>
+  <ActionDefault name="f3" text="F3" acceleratorName="F3" contextMenu="no"/>
+  <ActionDefault name="f4" text="F4" acceleratorName="F4" contextMenu="no"/>
+  <ActionDefault name="f5" text="F5" acceleratorName="F5" contextMenu="no"/>
+  <ActionDefault name="f6" text="F6" acceleratorName="F6" contextMenu="no"/>
+  <ActionDefault name="f7" text="F7" acceleratorName="F7" contextMenu="no"/>
+  <ActionDefault name="f8" text="F8" acceleratorName="F8" contextMenu="no"/>
+  <ActionDefault name="f9" text="F9" acceleratorName="F9" contextMenu="no"/>
+  <ActionDefault name="f10" text="F10" acceleratorName="F10" contextMenu="no"/>
+  <ActionDefault name="f11" text="F11" acceleratorName="F11" contextMenu="no"/>
+  <ActionDefault name="f12" text="F12" acceleratorName="F12" contextMenu="no"/>
 
-	<ActionDefault name="actiona" text="Action A" acceleratorName="Control-A" contextMenu="no"/>
-	<ActionDefault name="actionb" text="Action B" acceleratorName="Control-B" contextMenu="no"/>
-	<ActionDefault name="actionc" text="Action C" acceleratorName="Control-C" contextMenu="no"/>
-	<ActionDefault name="actiond" text="Action D" acceleratorName="Control-D" contextMenu="no"/>
-	<ActionDefault name="actione" text="Action E" acceleratorName="Control-E" contextMenu="no"/>
-	<ActionDefault name="actionf" text="Action F" acceleratorName="Control-F" contextMenu="no"/>
-	<ActionDefault name="actiong" text="Action G" acceleratorName="Control-G" contextMenu="no"/>
-	<ActionDefault name="actionh" text="Action H" acceleratorName="Control-H" contextMenu="no"/>
-	<ActionDefault name="actioni" text="Action I" acceleratorName="Control-I" contextMenu="no"/>
-	<ActionDefault name="actionj" text="Action J" acceleratorName="Control-J" contextMenu="no"/>
-	<ActionDefault name="actionk" text="Action K" acceleratorName="Control-K" contextMenu="no"/>
-	<ActionDefault name="actionl" text="Action L" acceleratorName="Control-L" contextMenu="no"/>
-	<ActionDefault name="actionm" text="Action M" acceleratorName="Control-M" contextMenu="no"/>
-	<ActionDefault name="actionn" text="Action N" acceleratorName="Control-N" contextMenu="no"/>
-	<ActionDefault name="actiono" text="Action O" acceleratorName="Control-O" contextMenu="no"/>
-	<ActionDefault name="actionp" text="Action P" acceleratorName="Control-P" contextMenu="no"/>
-	<ActionDefault name="actionq" text="Action Q" acceleratorName="Control-Q" contextMenu="no"/>
-	<ActionDefault name="actionr" text="Action R" acceleratorName="Control-R" contextMenu="no"/>
-	<ActionDefault name="actions" text="Action S" acceleratorName="Control-S" contextMenu="no"/>
-	<ActionDefault name="actiont" text="Action T" acceleratorName="Control-T" contextMenu="no"/>
-	<ActionDefault name="actionu" text="Action U" acceleratorName="Control-U" contextMenu="no"/>
-	<ActionDefault name="actionv" text="Action V" acceleratorName="Control-V" contextMenu="no"/>
-	<ActionDefault name="actionw" text="Action W" acceleratorName="Control-W" contextMenu="no"/>
-	<ActionDefault name="actionx" text="Action X" acceleratorName="Control-X" contextMenu="no"/>
-	<ActionDefault name="actiony" text="Action Y" acceleratorName="Control-Y" contextMenu="no"/>
-	<ActionDefault name="actionz" text="Action Z" acceleratorName="Control-Z" contextMenu="no"/>
+  <ActionDefault name="actiona" text="Action A" acceleratorName="Control-A" contextMenu="no"/>
+  <ActionDefault name="actionb" text="Action B" acceleratorName="Control-B" contextMenu="no"/>
+  <ActionDefault name="actionc" text="Action C" acceleratorName="Control-C" contextMenu="no"/>
+  <ActionDefault name="actiond" text="Action D" acceleratorName="Control-D" contextMenu="no"/>
+  <ActionDefault name="actione" text="Action E" acceleratorName="Control-E" contextMenu="no"/>
+  <ActionDefault name="actionf" text="Action F" acceleratorName="Control-F" contextMenu="no"/>
+  <ActionDefault name="actiong" text="Action G" acceleratorName="Control-G" contextMenu="no"/>
+  <ActionDefault name="actionh" text="Action H" acceleratorName="Control-H" contextMenu="no"/>
+  <ActionDefault name="actioni" text="Action I" acceleratorName="Control-I" contextMenu="no"/>
+  <ActionDefault name="actionj" text="Action J" acceleratorName="Control-J" contextMenu="no"/>
+  <ActionDefault name="actionk" text="Action K" acceleratorName="Control-K" contextMenu="no"/>
+  <ActionDefault name="actionl" text="Action L" acceleratorName="Control-L" contextMenu="no"/>
+  <ActionDefault name="actionm" text="Action M" acceleratorName="Control-M" contextMenu="no"/>
+  <ActionDefault name="actionn" text="Action N" acceleratorName="Control-N" contextMenu="no"/>
+  <ActionDefault name="actiono" text="Action O" acceleratorName="Control-O" contextMenu="no"/>
+  <ActionDefault name="actionp" text="Action P" acceleratorName="Control-P" contextMenu="no"/>
+  <ActionDefault name="actionq" text="Action Q" acceleratorName="Control-Q" contextMenu="no"/>
+  <ActionDefault name="actionr" text="Action R" acceleratorName="Control-R" contextMenu="no"/>
+  <ActionDefault name="actions" text="Action S" acceleratorName="Control-S" contextMenu="no"/>
+  <ActionDefault name="actiont" text="Action T" acceleratorName="Control-T" contextMenu="no"/>
+  <ActionDefault name="actionu" text="Action U" acceleratorName="Control-U" contextMenu="no"/>
+  <ActionDefault name="actionv" text="Action V" acceleratorName="Control-V" contextMenu="no"/>
+  <ActionDefault name="actionw" text="Action W" acceleratorName="Control-W" contextMenu="no"/>
+  <ActionDefault name="actionx" text="Action X" acceleratorName="Control-X" contextMenu="no"/>
+  <ActionDefault name="actiony" text="Action Y" acceleratorName="Control-Y" contextMenu="no"/>
+  <ActionDefault name="actionz" text="Action Z" acceleratorName="Control-Z" contextMenu="no"/>
 </ActionDefaultList>

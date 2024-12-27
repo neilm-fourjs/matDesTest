@@ -1,18 +1,27 @@
 
 ACTION DEFAULTS
-	ACTION showform ( TEXT="Show Form", IMAGE="fa-desktop" )
-	ACTION msg ( TEXT="Message", IMAGE="fa-info-circle" )
-	ACTION err ( TEXT="Error", IMAGE="fa-exclamation-circle" )
-	ACTION win ( TEXT="Model Window", IMAGE="fa-circle" )
-	ACTION win_mess ( TEXT="Message Window", IMAGE="fa-info" )
-	ACTION wintitle ( TEXT="Window Title", IMAGE="fa-square" )
-	ACTION dyntext ( TEXT="Dynamic Text", IMAGE="fa-square" )
-	ACTION darklogo ( TEXT="Dark Logo", IMAGE="fa-square" )
-	ACTION lightlogo ( TEXT="Light Logo", IMAGE="fa-square" )
-	ACTION uitext ( TEXT="UI Text", IMAGE="fa-square" )
-	ACTION pg ( TEXT="ProgressBar", IMAGE="fa-sliders-h" )
-	ACTION pg50 ( TEXT="Prog Bar 50", IMAGE="fa-battery-2" )
-	ACTION inactive ( TEXT="Inactive", IMAGE="fa-eye-slash" )
+	ACTION showform ( TEXT="Show Form", IMAGE="desktop" )
+	ACTION constrct ( TEXT="Construct", IMAGE="database" )
+	ACTION msg ( TEXT="Message", IMAGE="information" )
+	ACTION err ( TEXT="Error", IMAGE="exclamation" )
+	ACTION win ( TEXT="Model Window", IMAGE="circle" )
+	ACTION win_mess ( TEXT="Message Window", IMAGE="comment" )
+	ACTION win_quest ( TEXT="Question", IMAGE="question" )
+	ACTION notify ( TEXT="Notify", IMAGE="circle" )
+	ACTION wintitle ( TEXT="Window Title", IMAGE="square" )
+	ACTION uitext ( TEXT="UI Text", IMAGE="square" )
+	ACTION dyntext ( TEXT="Dynamic Text", IMAGE="square" )
+	ACTION darklogo ( TEXT="Dark Logo", IMAGE="square" )
+	ACTION lightlogo ( TEXT="Light Logo", IMAGE="square" )
+	ACTION pg ( TEXT="ProgressBar", IMAGE="list" )
+	ACTION pg50 ( TEXT="Prog Bar 50", IMAGE="battery-2" )
+	ACTION inactive ( TEXT="Inactive", IMAGE="eye-slash" )
+	ACTION fc_ismob ( TEXT="isMobile", IMAGE="mobile" )
+	ACTION sleep ( TEXT="Sleep 5", IMAGE="bedtime" )
+	ACTION clipset ( TEXT="Clipboard Set", IMAGE="copy" )
+	ACTION clipshow ( TEXT="Clipboard Show", IMAGE="paste" )
+	ACTION asterisk ( TEXT="Asterisk", ACCELERATOR="*" )
+	ACTION asterisk2 ( TEXT="Asterisk2", ACCELERATOR="Shift-8" )
 END -- AD
 
 TOPMENU
@@ -28,17 +37,24 @@ TOPMENU
 		COMMAND editpaste
 	END -- FIle
 	GROUP opt (TEXT="Option")
+		COMMAND constrct
 		COMMAND msg
 		COMMAND err
 		COMMAND win
 		COMMAND win_mess
+		COMMAND win_quest
+		COMMAND notify
 		COMMAND wintitle
+		COMMAND uitext
 		COMMAND dyntext
 		COMMAND darklogo
 		COMMAND lightlogo
-		COMMAND uitext
 		COMMAND pg
 		COMMAND pg50
+		COMMAND fc_ismob
+		COMMAND sleep
+		COMMAND clipset
+		COMMAND clipshow
 	END -- opt
 	GROUP help (TEXT="Help")
 		COMMAND about
@@ -47,6 +63,9 @@ END -- TM
 
 TOOLBAR
 	ITEM quit
+	SEPARATOR
+	ITEM accept
+	ITEM cancel
 	SEPARATOR
 	ITEM editcut
 	ITEM editcopy
@@ -60,57 +79,62 @@ TOOLBAR
 	ITEM win
 	ITEM pg
 	ITEM pg50
+	ITEM sleep
 END -- TB
 
-LAYOUT ( STYLE="main2", TEXT="Material Design Test", IMAGE="fa-bug" ) -- gbc_footer" )
+LAYOUT ( STYLE="main2", TEXT="Material Design Test.", IMAGE="bell" ) -- gbc_footer" )
 VBOX ( STYLE="formborder" )
-HBOX ( SPLITTER )
+HBOX ( SPLITTER, ORIENTATION@SMALL = VERTICAL )
 GRID
 {
-[lab1|f001      ]
-[lab2|f002           ]
-[lab3|f003           ]
-[lab4|f004      :a   ]
-[: :b:but1  :msg     :err   : :]
-[lcmdlnk|cmdlink               ]
+[lab1|f001       |lab2a|f02a  ]
+[lab2|f002           |de1     ]
+[lab3|f003           |de2     ]
+[lab4|f004           |col     ]
+[lab5|f005           |cl   ]
+[lab6|f006           |     ]
+[: :b1:but1  :msg    :err   : :]
 <G g1                          >
-[lab5|f005         ]
-[lab6|f006           ]
+[lab7|f007           ][a      ]
+[lab8|f008           ][b      ]
+[lab9|f009           ][c      ]
 <                              >
  more text outside of group.
-<T tab1                        >
- [a001               |a002    ]
- [a001               |a002    ]
- [a001               |a002    ]
- [a001               |a002    ]
- [a001               |a002    ]
- [a001               |a002    ]
+<T tab                         >
+ [a001      |a002         |a03]
+ [a001      |a002         |a03]
+ [a001      |a002         |a03]
+ [a001      |a002         |a03]
+ [a001      |a002         |a03]
+ [a001      |a002         |a03]
 <                              >
 }
 END -- GRID
-VBOX
-
-HBOX ( SPLITTER )
 
 FOLDER (STYLE="accordion")
+
 PAGE f2p1 (TEXT="Some Text", IMAGE="smiley")
 GRID
 {
 This folder is using the 'accordion' style
-The table in the tab below is using 'listview' style
 IMAGEPATH:
 [ip                                          ]
 [                                            ]
-Style File:
+[l4stfile         ]
 [sf                                          ]
 [                                            ]
+[lrt         ]
+[rtver                   ]
+[lcli        ]
+[client                                      ]
 }
 END -- GRID
 END -- PAGE
 
-PAGE f2p2 (TEXT="ListView Table", IMAGE="smiley", ACTION=arr2)
+PAGE f2p2 (TEXT="ListView", IMAGE="smiley", ACTION=arr2)
 GRID
 {
+The table in the tab below is using 'listview' style
 <T tab2                                        >
  [t201                   |t202                ]
  [t201                   |t202                ]
@@ -120,47 +144,29 @@ GRID
  [t201                   |t202                ]
  [t201                   |t202                ]
 <                                              >
- [tab2info                                    ]
+ [: :tab2info                              : :]
 }
 END -- GRID
 END -- PAGE
 
-PAGE f2p3 (TEXT="FlipView Table", IMAGE="smiley", ACTION=arr4)
-GRID
-{
-<T tab4                                        >
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
- [t401         |t402    |t403          |t404  ]
-<                                              >
- [tab4info                                    ]
-}
-END -- GRID
-END -- PAGE
-
-PAGE f2p4 (TEXT="Traditional Table", IMAGE="smiley", ACTION=arr3)
+PAGE f2p3 (TEXT="Table 2", IMAGE="smiley", ACTION=arr3)
 GRID
 {
 <T tab3                                        >
- [t301                   |t302                ]
- [t301                   |t302                ]
- [t301                   |t302                ]
- [t301                   |t302                ]
- [t301                   |t302                ]
- [t301                   |t302                ]
- [t301                   |t302                ]
+ [t301      |t302                             ]
+ [t301      |t302                             ]
+ [t301      |t302                             ]
+ [t301      |t302                             ]
+ [t301      |t302                             ]
+ [t301      |t302                             ]
+ [t301      |t302                             ]
 <                                              >
  [tab3info                                    ]
 }
 END -- GRID
 END -- PAGE
 
-PAGE f2p5 (TEXT="A Group", IMAGE="smiley")
+PAGE f2p4 (TEXT="A Group", IMAGE="smiley")
 GRID
 {
 <G "A Group"                               >
@@ -171,7 +177,7 @@ END -- GRID
 END -- PAGE
 END -- FOLDER
 
-FOLDER
+FOLDER (HIDDEN@SMALL)
 PAGE p1 (TEXT="Page1", IMAGE="smiley")
 GRID
 {
@@ -182,11 +188,21 @@ Some text on a page.
  text in a group
  Live Field: [p101     ]
  Dead Field: [p102     ]
+[""]
+ Table in a group:
+ <T tab4               >
+ [t402                ]
+ [t402                ]
+ [t402                ]
+ [t402                ]
+ [t402                ]
+ <                     >
+ bottom of group
 <                       >
 }
 END -- GRID
 END -- PAGE
-PAGE p2 (TEXT="Page2", IMAGE="fa-frown-o")
+PAGE p2 (TEXT="Page2", IMAGE="ssmiley")
 GRID
 {
 page 2 is almost empty
@@ -199,85 +215,119 @@ END -- FOLDER
 
 END -- HBOX
 
-
-END -- VBOX
-END -- HBOX
-
-GRID ( STYLE="center" )
+HBOX (HIDDEN@SMALL)
+GRID
 {
-[logo                         ]
-[pg                           ]
+[pg                         : :dcl         ]
 }
 END -- GRID
+GRID
+{
+[sp]
+}
+END -- GRID
+GRID
+{
+[logo]
+}
+END -- GRID
+END -- HBOX
 
 END -- VBOX
 ATTRIBUTES
 
-GROUP g1 : g1, TEXT=%"A Group #1", GRIDCHILDRENINPARENT,STYLE="uncollapsed";
+GROUP g1 : g1, TEXT=%"A Group #1", GRIDCHILDRENINPARENT,STYLE="uncollapsed curved";
 GROUP g2 : g2, TEXT=%"A Group #2",STYLE="collapsed";
 
 LABEL lab1 : lab1, TEXT=%"ButtonEdit:",JUSTIFY=RIGHT;
 LABEL lab2 : lab2, TEXT=%"DateEdit:",JUSTIFY=RIGHT;
-LABEL lab3 : lab3, TEXT=%"Combo:",JUSTIFY=RIGHT;
-LABEL lab4 : lab4, TEXT=%"Readonly:",JUSTIFY=RIGHT;
-LABEL lab5 : lab5, TEXT=%"Live Field:",JUSTIFY=RIGHT;
-LABEL lab6 : lab6, TEXT=%"Dead Field:",JUSTIFY=RIGHT;
+LABEL de1 : de1, TEXT=%"normal", STYLE="small";
+LABEL de2 : de2, TEXT=%"dropdown", STYLE="small";
+LABEL lab3 : lab3, TEXT=%"DateEdit:",JUSTIFY=RIGHT;
+LABEL lab2a : lab2a, TEXT=%"Interval:",JUSTIFY=RIGHT;
+LABEL lab4 : lab4, TEXT=%"Combo:",JUSTIFY=RIGHT;
+LABEL lab5 : lab5, TEXT=%"Combo(QE):",JUSTIFY=RIGHT;
+LABEL lab6 : lab6, TEXT=%"Completer:",JUSTIFY=RIGHT;
+LABEL lab7 : lab7, TEXT=%"Readonly:",JUSTIFY=RIGHT;
+LABEL lab8 : lab8, TEXT=%"Live Field:",JUSTIFY=RIGHT;
+LABEL lab9 : lab9, TEXT=%"Dead Field:",JUSTIFY=RIGHT;
+LABEL l4stfile : l4stfile, TEXT=%"Style File:";
+LABEL lrt : lrt, TEXT=%"Runtime:";
+LABEL lcli : lcli, TEXT=%"Client:";
 
-LABEL lcmdlnk : lcmdlnk, TEXT="Command Link:", JUSTIFY=RIGHT;
-BUTTON cmdlink : cmdlink, TEXT="Command Link Button", COMMENT="This doesn't do much yet", IMAGE="fa-comments-o", STYLE="commandLink";
+BUTTONEDIT f001 = FORMONLY.fld1, ACTION=win, TABINDEX=2;
+DATEEDIT f002 = FORMONLY.fld2, TABINDEX=3;
+DATEEDIT f003 = FORMONLY.fld3, TABINDEX=4, STYLE="dropdown";
+f02a = FORMONLY.fld2a, SCROLL, TABINDEX=5;
+COMBOBOX f004 = FORMONLY.fld4, INITIALIZER=cb_colour, PLACEHOLDER=%"Pick a Colour", TABINDEX=6;
+COMBOBOX f005 = FORMONLY.fld5, INITIALIZER=cb_colour, PLACEHOLDER=%"Pick a Colour", QUERYEDITABLE, TABINDEX=7;
+f006 = FORMONLY.fld6,COMPLETER, TABINDEX=8;
 
-BUTTONEDIT f001 = FORMONLY.fld1, ACTION=win;
-DATEEDIT f002 = FORMONLY.fld2;
-COMBOBOX f003 = FORMONLY.fld3, ITEMS=("Red","Blue","Green"), PLACEHOLDER=%"Pick a Colour";
-f004 = FORMONLY.fld4, NOENTRY;
-f005 = FORMONLY.fld5;
-f006 = FORMONLY.fld6, NOENTRY;
-p101 = FORMONLY.fld7;
-p102 = FORMONLY.fld8, NOENTRY;
-CHECKBOX a = FORMONLY.okay, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"Ok?";
-IMAGE logo : logo, IMAGE="logo_dark", SIZEPOLICY=INITIAL,STYLE="noborder center";
+WEBCOMPONENT col = FORMONLY.col_hex,
+	STYLE="curvedborder",
+	SIZEPOLICY=FIXED, 
+	STRETCH=NONE, 
+	SCROLLBARS=NONE, 
+	HEIGHT=32 PIXELS, WIDTH=64 PIXELS,
+	COMPONENTTYPE="colour";
+
+WEBCOMPONENT cl = FORMONLY.cl, COMPONENTTYPE="clock";
+WEBCOMPONENT dcl = FORMONLY.dcl, COMPONENTTYPE="dclock";
+
+f007 = FORMONLY.fld7, NOENTRY;
+f008 = FORMONLY.fld8, TABINDEX=9;
+f009 = FORMONLY.fld9, NOENTRY;
+p101 = FORMONLY.fld10, TABINDEX=10;
+p102 = FORMONLY.fld11, NOENTRY;
+CHECKBOX a = FORMONLY.okay, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"Ok?", NOT NULL, TABINDEX=11;
+CHECKBOX b = FORMONLY.notokay, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"NOk?", NOT NULL, TABINDEX=12;
+CHECKBOX c = FORMONLY.nul, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"Nul?";
+
 IMAGE logo2 : logo2, IMAGE="logo_light", SIZEPOLICY=INITIAL,STYLE="noborder center";
 
 -- normal table
-TABLE tab1 : tab1, STYLE="table3";
-a001 = FORMONLY.col1, TITLE="Title1", IMAGECOLUMN=img;
+--TABLE tab : tab, WANTFIXEDPAGESIZE; -- ideally want this for @small only!
+a001 = FORMONLY.col1, TITLE="Fld1", IMAGECOLUMN=img;
 a002 = FORMONLY.col2, TITLE="Fld2";
+a03 = FORMONLY.col3, TITLE="Fld3";
 PHANTOM FORMONLY.img;
 
-PROGRESSBAR pg = FORMONLY.pg, VALUEMAX=10000;
-
-BUTTON b : bomb, IMAGE="fa-bomb", TEXT="";
+BUTTON b1 : bomb, IMAGE="heart", TEXT="", TABINDEX=1;
 BUTTON but1 : quit;
 BUTTON msg : msg;
 BUTTON err: err;
 
 TEXTEDIT ip = FORMONLY.imgpath,STRETCH=X;
 TEXTEDIT sf = FORMONLY.stylefile,STRETCH=X;
+EDIT rtver = FORMONLY.rtver;
+EDIT client = FORMONLY.client;
 
 -- list view table
 TABLE tab2 : tab2, STYLE="listview";
-t201 = FORMONLY.lvcol1, SCROLL, IMAGECOLUMN=lvimg;
-t202 = FORMONLY.lvcol2, SCROLL;
+t201 = FORMONLY.lvcol1, SCROLL, IMAGECOLUMN=lvimg, STYLE="bold em12";
+t202 = FORMONLY.lvcol2, SCROLL,  STYLE="em8"; --, STYLE="html noborder", SCROLLBARS=NONE;
 PHANTOM FORMONLY.lvimg;
 LABEL tab2info = FORMONLY.tab2info, STYLE="center";
-
--- arr4 table
-TABLE tab4 : tab4, STYLE="flipview";
-t401 = FORMONLY.a4col1, SCROLL, TITLE="Column 1";
-t402 = FORMONLY.a4col2, SCROLL, TITLE="Column 2";
-t403 = FORMONLY.a4col3, SCROLL, TITLE="Column 3";
-IMAGE t404 = FORMONLY.a4img, TITLE="Column 4";
-LABEL tab4info = FORMONLY.tab4info, STYLE="center";
 
 -- arr2 table
 TABLE tab3 : tab3, STYLE="table3";
 t301 = FORMONLY.a3col1, SCROLL, IMAGECOLUMN=a3img, TITLE="Column 1";
-t302 = FORMONLY.a3col2, SCROLL, TITLE="Column 2";
+TEXTEDIT t302 = FORMONLY.a3col2, SCROLL, TITLE="Column 2", SCROLLBARS=NONE, STYLE="html";
 PHANTOM FORMONLY.a3img;
 LABEL tab3info = FORMONLY.tab3info, STYLE="center";
 
+-- table in group
+TABLE tab4 : tab4, WANTFIXEDPAGESIZE, STYLE="nocurrent";
+PHANTOM FORMONLY.tab401;
+t402 = FORMONLY.tab402, TITLE="Colours";
+PHANTOM FORMONLY.tab403;
+
+IMAGE logo : logo, IMAGE="logo_dark", SIZEPOLICY=INITIAL,STYLE="noborder center";
+IMAGE sp : sp, IMAGE="", STRETCH=X, STYLE="noborder";
+PROGRESSBAR pg = FORMONLY.pg, VALUEMAX=10000 ;
+
 INSTRUCTIONS
-SCREEN RECORD arr1 ( FORMONLY.col1 THRU FORMONLY.img )
+SCREEN RECORD arr1 [6] ( FORMONLY.col1 THRU FORMONLY.img )
 SCREEN RECORD arr2 ( FORMONLY.lvcol1 THRU FORMONLY.lvimg )
 SCREEN RECORD arr3 ( FORMONLY.a3col1 THRU FORMONLY.a3img )
-SCREEN RECORD arr4 ( FORMONLY.a4col1 THRU FORMONLY.a4img )
+SCREEN RECORD arr4 ( FORMONLY.tab401 THRU FORMONLY.tab403 )

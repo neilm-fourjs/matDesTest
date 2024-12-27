@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="ANSI_X3.4-1968"?>
 <StyleList>
-	<Style name="Button.commandLink">
-		<StyleAttribute name="buttonType"	value="commandLink" />
-		<!--StyleAttribute name="scaleIcon" value="yes"/-->
-		<StyleAttribute name="defaultTTFColor" value="buttonText" />
+
+	<Style name=".small">
+		<StyleAttribute name="fontSize" value=".8em" />
 	</Style>
-	<Style name="Folder.accordion">
-		<StyleAttribute name="position"	value="accordion" />
-	</Style>
-	<Style name="Table.listview">
-		<StyleAttribute name="tableType"	value="listView" />
-	</Style>
-	<Style name="Table.flipview">
-		<StyleAttribute name="tableType"	value="responsive" />
-	</Style>
-	<Style name="Table.table3:even">
-		<StyleAttribute name="backgroundColor"	value="systemAlternateBackground" />
+	<Style name=".dropdown">
+		<StyleAttribute name="calendarType" value="dropdown" />
 	</Style>
 	<Style name=".noborder">
 		<StyleAttribute name="border" value="none" />
 	</Style>
+	<Style name=".html">
+     <StyleAttribute name="textFormat" value="html"/>
+	</Style>
+	<Style name=".bold">
+     <StyleAttribute name="fontWeight" value="bold"/>
+	</Style>
+	<Style name=".em12">
+     <StyleAttribute name="fontSize" value="1.2em"/>
+	</Style>
+	<Style name=".em8">
+     <StyleAttribute name="fontSize" value=".8em"/>
+	</Style>
+
+  <Style name="Folder">
+      <StyleAttribute name="lateRendering" value="yes" />
+  </Style>
+	<Style name="Folder.accordion">
+		<StyleAttribute name="position"	value="accordion" />
+	</Style>
+
+	<Style name="Table.listview">
+		<StyleAttribute name="tableType"	value="listView" />
+	</Style>
+	<Style name="Table.nocurrent">
+		<StyleAttribute name="highlightCurrentRow" value="no" />
+	</Style>
+
 	<Style name="Group.collapsed" >
 		<StyleAttribute name="collapsible" value="yes" />
 		<StyleAttribute name="initiallyCollapsed" value="yes" />
@@ -28,6 +45,7 @@
 		<StyleAttribute name="collapsible" value="yes" />
 		<StyleAttribute name="initiallyCollapsed" value="no" />
 	</Style>
+
 	<Style name="Window">
 		<StyleAttribute name="windowType" value="normal" />
 	</Style>
@@ -44,7 +62,7 @@
 		<StyleAttribute name="windowType" value="normal" />
 		<StyleAttribute name="actionPanelPosition" value="none" />
 		<StyleAttribute name="ringMenuPosition" value="none" />
-		<StyleAttribute name="sizable" value="yes" />
+		<StyleAttribute name="sizable" value="no" />
 		<StyleAttribute name="position" value="center" />
 	</Style>
 	<Style name="Window.dialog">

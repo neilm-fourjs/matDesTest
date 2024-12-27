@@ -2,6 +2,7 @@
 *.42?
 
 # Genero Studio generated  project files
+*.4pdb
 *.4pwvs
 *.4pwdb
 *.4pwcfg
@@ -26,6 +27,8 @@
 *.out
 *.tmp
 *.err
+*.bak
+*.4gl~
 
 # Packages
 *.tgz
@@ -35,10 +38,15 @@
 *.info
 *.apk
 *.gar
+*.zip
 
 # Other
 .directory
+bin
+bin310
+bin320
 distbin
+gwa_bin
 build
 *.build
-bin/aui_stock_dynamic.xml
+*.list
