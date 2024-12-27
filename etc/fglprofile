@@ -1,0 +1,3 @@
+mobile.environment.FGLIMAGEPATH = ".:$FGLAPPDIR/pics:$FGLAPPDIR/pics/gmdi.txt"
+mobile.environment.FGLRESOURCEPATH = ".:$FGLAPPDIR"
+mobile.environment.FJS_GL_DBGLEV = 3

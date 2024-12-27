@@ -120,6 +120,11 @@ This folder is using the 'accordion' style
 IMAGEPATH:
 [ip                                          ]
 [                                            ]
+[lfglpro                                     ]
+[fglprof                                     ]
+[fglpro                                      ]
+[                                            ]
+[                                            ]
 [l4stfile         ]
 [sf                                          ]
 [                                            ]
@@ -252,6 +257,7 @@ LABEL lab7 : lab7, TEXT=%"Readonly:",JUSTIFY=RIGHT;
 LABEL lab8 : lab8, TEXT=%"Live Field:",JUSTIFY=RIGHT;
 LABEL lab9 : lab9, TEXT=%"Dead Field:",JUSTIFY=RIGHT;
 LABEL l4stfile : l4stfile, TEXT=%"Style File:";
+LABEL lfglpro : lfglpro, TEXT=%"FGLPROFILE:";
 LABEL lrt : lrt, TEXT=%"Runtime:";
 LABEL lcli : lcli, TEXT=%"Client:";
 
@@ -298,6 +304,8 @@ BUTTON msg : msg;
 BUTTON err: err;
 
 TEXTEDIT ip = FORMONLY.imgpath,STRETCH=X;
+EDIT fglprof = FORMONLY.fglprof;
+TEXTEDIT fglpro = FORMONLY.fglpro,STRETCH=X, STYLE="small";
 TEXTEDIT sf = FORMONLY.stylefile,STRETCH=X;
 EDIT rtver = FORMONLY.rtver;
 EDIT client = FORMONLY.client;

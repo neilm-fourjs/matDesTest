@@ -4,6 +4,7 @@ export FGLIMAGEPATH=$(BASE)/pics:$(BASE)/pics/gmdi.txt
 export FGLRESOURCEPATH=../etc
 export FJS_GL_DBGLEV=3
 export FGLGBCDIR=$(FGLDIR)/web_utilities/gbc/gbc-clean
+export FGLPROFILE=$(BASE)/etc/fglprofile
 WC=./pics/webcomponents
 PROG=matDesTest
 MAIN=$(PROG).42m
@@ -12,7 +13,7 @@ GWABUILDTOOL ?= gwabuildtool
 
 GWABIN=gwa_bin
 
-all: bin$(GENVER)/$(MAIN) distbin/$(PROG)$(GENVER).gar
+all: bin$(GENVER)/$(MAIN) bin$(GENVER)/fglprofile bin$(GENVER)/pics bin$(GENVER)/pics/gmdi.txt bin$(GENVER)/pics/MaterialIcons-Regular.ttf distbin/$(PROG)$(GENVER).gar
 
 SOURCE=$(shell find . -name \*.4gl) $(shell find . -name \*.per)
 
@@ -28,6 +29,18 @@ clean:
 	rm -f distbin/$(PROG)$(GENVER).gar
 	rm -f distbin/$(PROG)$(GENVER).gwa
 
+bin$(GENVER)/fglprofile:
+	cd bin$(GENVER) && ln -s ../etc/fglprofile
+
+bin$(GENVER)/pics:
+	mkdir $@
+
+bin$(GENVER)/pics/gmdi.txt:
+	cd bin$(GENVER)/pics && ln -s ../../pics/gmdi.txt
+
+bin$(GENVER)/pics/MaterialIcons-Regular.ttf:
+	cd bin$(GENVER)/pics && ln -s ../../pics/MaterialIcons-Regular.ttf
+
 run:
 	cd bin$(GENVER) && fglrun $(MAIN)
 
@@ -35,7 +48,7 @@ gar.deploy: distbin/$(PROG)$(GENVER).gar
 	cd distbin && ./gar_deploy.sh $(PROG)$(GENVER)
 
 gwa.build: all
-	$(GWABUILDTOOL) -v --main-module $(MAIN) --output-dir $(GWABIN) --gbc $(FGLGBCDIR) --program-dir ./bin$(GENVER) --extra-asset ./etc/colour_names.txt --extra-asset ./etc/matDesTest.4st --extra-asset ./etc/default.4ad --webcomponent $(WC)/clock --webcomponent $(WC)/dclock --webcomponent $(WC)/colour --title "Material Design Test V1" 
+	$(GWABUILDTOOL) -v --main-module $(MAIN) --output-dir $(GWABIN) --gbc $(FGLGBCDIR) --program-dir ./bin$(GENVER) --extra-asset ./etc/fglprofile --extra-asset ./etc/colour_names.txt --extra-asset ./etc/matDesTest.4st --extra-asset ./etc/default.4ad --webcomponent $(WC)/clock --webcomponent $(WC)/dclock --webcomponent $(WC)/colour --title "Material Design Test V1" 
 gwa.run: gwa.build
 	cd $(GWABIN) && gwasrv index.html
 

@@ -107,6 +107,8 @@ MAIN
 	DISPLAY FORM f
 
 	DISPLAY fgl_getenv("FGLIMAGEPATH") TO imgpath
+	DISPLAY fgl_getenv("FGLPROFILE" ) TO fglprof
+	DISPLAY readFile( fgl_getenv("FGLPROFILE") ) TO fglpro
 	DISPLAY getAUIAttrVal("StyleList", "fileName") TO stylefile
 	DISPLAY fgl_getVersion() TO rtver
 	DISPLAY SFMT("%1 %2 %3 %4", ui.Interface.getFrontEndName(), ui.Interface.getFrontEndVersion(), ui.Interface.getUniversalClientName(),  ui.Interface.getUniversalClientVersion()) TO client
@@ -571,4 +573,10 @@ FUNCTION clipShow() RETURNS()
 	DEFINE l_res STRING
 	CALL ui.Interface.frontCall("standard", "cbget", [], l_res)
 	CALL fgl_winMessage("Clipboard", l_res, "information")
+END FUNCTION
+--------------------------------------------------------------------------------
+FUNCTION readFile( l_file STRING ) RETURNS(STRING)
+	DEFINE l_txt TEXT
+	LOCATE l_txt IN FILE l_file
+	RETURN l_txt
 END FUNCTION

@@ -43,8 +43,10 @@
 # Other
 .directory
 bin
-bin310
-bin320
+bin321
+bin401
+bin500
+bin501
 distbin
 gwa_bin
 build
