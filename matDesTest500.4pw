@@ -78,7 +78,7 @@
     </Language>
   </LanguageList>
   <PlatformList version="1.0"/>
-  <Group compilerOptions="-Dgen401" environment="value:FGLIMAGEPATH=../pics:../pics/gmdi.txt" id="75644415" label="Group" language="Genero (no link)" targetDirectory="$(ProjectDir)/bin500">
+  <Group compilerOptions="-Dgen401" environment="value:FGLIMAGEPATH=../pics:../pics/gmdi.txt:.." id="75644415" label="Group" language="Genero (no link)" targetDirectory="$(ProjectDir)/bin500">
     <Library binaryName="etc" dependencies="1986" id="14000" label="etc">
       <File filePath="etc/colour_names.txt"/>
       <File filePath="etc/default.4ad"/>
@@ -108,10 +108,11 @@
     <Package binaryName="matDesTest500" dependencies="18736,14000,1103685783" description="Material Design Test" id="495258708" label="matDesTest500" platform="Genero Application Server">
       <DynamicProperty name="packageId" value="matDesTest"/>
       <DynamicProperty name="packageLabel" value="matDesTest"/>
-      <Directory destinationDirectory="$(RootDir)/bin" excludedFiles="Test.42r" includedFiles="*.42?" label="Binaries" sourceDirectory="$(ProjectDir)/bin500"/>
+      <Directory excludedFiles="Test.42r" includedFiles="*.42?" label="Binaries" sourceDirectory="$(ProjectDir)/bin500"/>
       <Directory destinationDirectory="$(RootDir)/pics" label="Images" sourceDirectory="$(ProjectDir)/pics"/>
-      <Directory destinationDirectory="$(RootDir)/etc" includedFiles="*.4ad,*.4st,*.4tm,*.4tb,*.4sm,*.42s,*.iem,*.txt" label="Resources" sourceDirectory="$(ProjectDir)/etc"/>
-      <Directory destinationDirectory="$(RootDir)/etc" includedFiles="matDesTest.xcf" label="XCF" sourceDirectory="$(ProjectDir)/etc"/>
+      <Directory includedFiles="*.4ad,*.4st,*.4tm,*.4tb,*.4sm,*.42s,*.iem,*.txt" label="Resources" sourceDirectory="$(ProjectDir)/etc"/>
+      <Directory destinationDirectory="$(RootDir)/webcomponents" label="Webcomponents" sourceDirectory="$(ProjectDir)/webcomponents"/>
+      <Directory includedFiles="matDesTest.xcf" label="XCF" sourceDirectory="$(ProjectDir)/etc"/>
     </Package>
   </Group>
 </Project>

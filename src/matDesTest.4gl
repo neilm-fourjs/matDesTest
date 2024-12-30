@@ -105,7 +105,7 @@ MAIN
 
 	OPEN FORM f FROM "matDesTest"
 	DISPLAY FORM f
-
+ 
 	DISPLAY fgl_getenv("FGLIMAGEPATH") TO imgpath
 	DISPLAY fgl_getenv("FGLPROFILE" ) TO fglprof
 	DISPLAY readFile( fgl_getenv("FGLPROFILE") ) TO fglpro
@@ -545,7 +545,7 @@ FUNCTION getColours() RETURNS()
 	LET l_file = os.Path.join(base.Application.getProgramDir(),C_COLOURSFILE )
 	IF NOT os.Path.exists(l_file) THEN
 		DISPLAY SFMT("Didn't find '%1'.", l_file)
-		LET l_file = os.Path.join("../etc/", C_COLOURSFILE)
+		LET l_file =  os.Path.join("../etc", C_COLOURSFILE)
 	END IF
 	IF NOT os.Path.exists(l_file) THEN
 		DISPLAY SFMT("Didn't find '%1'.", l_file)

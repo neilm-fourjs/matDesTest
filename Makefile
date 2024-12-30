@@ -1,11 +1,11 @@
 
 export BASE=$(PWD)
-export FGLIMAGEPATH=$(BASE)/pics:$(BASE)/pics/gmdi.txt
+export FGLIMAGEPATH=$(BASE):$(BASE)/pics:$(BASE)/pics/gmdi.txt
 export FGLRESOURCEPATH=../etc
 export FJS_GL_DBGLEV=3
 export FGLGBCDIR=$(FGLDIR)/web_utilities/gbc/gbc-clean
 export FGLPROFILE=$(BASE)/etc/fglprofile
-WC=./pics/webcomponents
+WC=./webcomponents
 PROG=matDesTest
 MAIN=$(PROG).42m
 GWARUN ?= gwarun
@@ -13,7 +13,7 @@ GWABUILDTOOL ?= gwabuildtool
 
 GWABIN=gwa_bin
 
-all: bin$(GENVER)/$(MAIN) bin$(GENVER)/fglprofile bin$(GENVER)/pics bin$(GENVER)/pics/gmdi.txt bin$(GENVER)/pics/MaterialIcons-Regular.ttf distbin/$(PROG)$(GENVER).gar
+all: bin$(GENVER)/$(MAIN) bin$(GENVER)/fglprofile bin$(GENVER)/pics distbin/$(PROG)$(GENVER).gar
 
 SOURCE=$(shell find . -name \*.4gl) $(shell find . -name \*.per)
 
@@ -33,13 +33,7 @@ bin$(GENVER)/fglprofile:
 	cd bin$(GENVER) && ln -s ../etc/fglprofile
 
 bin$(GENVER)/pics:
-	mkdir $@
-
-bin$(GENVER)/pics/gmdi.txt:
-	cd bin$(GENVER)/pics && ln -s ../../pics/gmdi.txt
-
-bin$(GENVER)/pics/MaterialIcons-Regular.ttf:
-	cd bin$(GENVER)/pics && ln -s ../../pics/MaterialIcons-Regular.ttf
+	cd bin$(GENVER) && ln -s ../pics
 
 run:
 	cd bin$(GENVER) && fglrun $(MAIN)

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <APPLICATION Parent="defaultgwc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/3.20/cfextwa.xsd">
 	<EXECUTION>
-		<ENVIRONMENT_VARIABLE Id="FGLRESOURCEPATH">../etc</ENVIRONMENT_VARIABLE>
-		<ENVIRONMENT_VARIABLE Id="FGLIMAGEPATH">../pics:../pics/gmdi.txt</ENVIRONMENT_VARIABLE>
-		<PATH>$(res.deployment.path)/bin</PATH>
+		<ENVIRONMENT_VARIABLE Id="FGLIMAGEPATH">./pics:./pics/gmdi.txt:.</ENVIRONMENT_VARIABLE>
+		<PATH>$(res.deployment.path)</PATH>
 		<MODULE>matDesTest</MODULE>
 		<!--ACCESS_CONTROL>
 			<ALLOW_FROM>192.168.</ALLOW_FROM>
 			<ALLOW_FROM>127.0.0.1</ALLOW_FROM>
 		</ACCESS_CONTROL-->
-		<WEB_COMPONENT_DIRECTORY>$(res.deployment.path)/pics/webcomponents</WEB_COMPONENT_DIRECTORY>
+		<WEB_COMPONENT_DIRECTORY>$(res.deployment.path)/webcomponents</WEB_COMPONENT_DIRECTORY>
 	</EXECUTION>
 </APPLICATION>

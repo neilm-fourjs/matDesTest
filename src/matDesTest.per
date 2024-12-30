@@ -136,25 +136,20 @@ IMAGEPATH:
 END -- GRID
 END -- PAGE
 
-PAGE f2p2 (TEXT="ListView", IMAGE="smiley", ACTION=arr2)
+PAGE f2p2 (TEXT="ScrollGrid", IMAGE="smiley", ACTION=arr2)
 GRID
 {
-The table in the tab below is using 'listview' style
-<T tab2                                        >
- [t201                   |t202                ]
- [t201                   |t202                ]
- [t201                   |t202                ]
- [t201                   |t202                ]
- [t201                   |t202                ]
- [t201                   |t202                ]
- [t201                   |t202                ]
+ScrollGrid with WANTFIXEDPAGESIZE=NO
+<S tab2                                        >
+ [t200|t202                                   ]
+ [    |t201                                   ]
 <                                              >
  [: :tab2info                              : :]
 }
 END -- GRID
 END -- PAGE
 
-PAGE f2p3 (TEXT="Table 2", IMAGE="smiley", ACTION=arr3)
+PAGE f2p3 (TEXT="Table 3", IMAGE="smiley", ACTION=arr3)
 GRID
 {
 <T tab3                                        >
@@ -201,6 +196,11 @@ Some text on a page.
  [t402                ]
  [t402                ]
  [t402                ]
+ [t402                ]
+ [t402                ]
+ [t402                ]
+ [t402                ]
+ [t402                ]
  <                     >
  bottom of group
 <                       >
@@ -213,6 +213,8 @@ GRID
 page 2 is almost empty
 <G "Logo in a group box"        >
  [logo2                        ]
+ [                             ]
+ [                             ]
 }
 END -- GRID
 END -- PAGE
@@ -289,8 +291,6 @@ CHECKBOX a = FORMONLY.okay, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"Ok?", NOT N
 CHECKBOX b = FORMONLY.notokay, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"NOk?", NOT NULL, TABINDEX=12;
 CHECKBOX c = FORMONLY.nul, VALUECHECKED=1, VALUEUNCHECKED=0, TEXT=%"Nul?";
 
-IMAGE logo2 : logo2, IMAGE="logo_light", SIZEPOLICY=INITIAL,STYLE="noborder center";
-
 -- normal table
 --TABLE tab : tab, WANTFIXEDPAGESIZE; -- ideally want this for @small only!
 a001 = FORMONLY.col1, TITLE="Fld1", IMAGECOLUMN=img;
@@ -310,11 +310,16 @@ TEXTEDIT sf = FORMONLY.stylefile,STRETCH=X;
 EDIT rtver = FORMONLY.rtver;
 EDIT client = FORMONLY.client;
 
--- list view table
-TABLE tab2 : tab2, STYLE="listview";
-t201 = FORMONLY.lvcol1, SCROLL, IMAGECOLUMN=lvimg, STYLE="bold em12";
-t202 = FORMONLY.lvcol2, SCROLL,  STYLE="em8"; --, STYLE="html noborder", SCROLLBARS=NONE;
-PHANTOM FORMONLY.lvimg;
+-- list view table - old style
+--TABLE tab2 : tab2, STYLE="listview";
+--t201 = FORMONLY.lvcol1, SCROLL, IMAGECOLUMN=lvimg, STYLE="bold em12";
+--t202 = FORMONLY.lvcol2, SCROLL,  STYLE="em8"; --, STYLE="html noborder", SCROLLBARS=NONE;
+--PHANTOM FORMONLY.lvimg;
+SCROLLGRID tab2 : tab2, STYLE="nocurrent", WANTFIXEDPAGESIZE=NO;
+IMAGE t200 = FORMONLY.lvimg,AUTOSCALE, STYLE="noborder";
+LABEL t201 = FORMONLY.lvcol1, STYLE="em8";
+LABEL t202 = FORMONLY.lvcol2, STYLE="bold em11";
+
 LABEL tab2info = FORMONLY.tab2info, STYLE="center";
 
 -- arr2 table
@@ -325,17 +330,20 @@ PHANTOM FORMONLY.a3img;
 LABEL tab3info = FORMONLY.tab3info, STYLE="center";
 
 -- table in group
-TABLE tab4 : tab4, WANTFIXEDPAGESIZE, STYLE="nocurrent";
+TABLE tab4 : tab4, WANTFIXEDPAGESIZE, STYLE="nocurrent fill";
 PHANTOM FORMONLY.tab401;
-t402 = FORMONLY.tab402, TITLE="Colours";
+t402 = FORMONLY.tab402, TITLE="Colour";
 PHANTOM FORMONLY.tab403;
 
 IMAGE logo : logo, IMAGE="logo_dark", SIZEPOLICY=INITIAL,STYLE="noborder center";
 IMAGE sp : sp, IMAGE="", STRETCH=X, STYLE="noborder";
 PROGRESSBAR pg = FORMONLY.pg, VALUEMAX=10000 ;
 
+IMAGE logo2 : logo2, IMAGE="logo_light", SIZEPOLICY=INITIAL,STYLE="noborder center";
+
 INSTRUCTIONS
 SCREEN RECORD arr1 [6] ( FORMONLY.col1 THRU FORMONLY.img )
-SCREEN RECORD arr2 ( FORMONLY.lvcol1 THRU FORMONLY.lvimg )
+--SCREEN RECORD arr2 ( FORMONLY.lvcol1 THRU FORMONLY.lvimg )
+SCREEN RECORD arr2 ( FORMONLY.lvimg THRU FORMONLY.lvcol2 )
 SCREEN RECORD arr3 ( FORMONLY.a3col1 THRU FORMONLY.a3img )
 SCREEN RECORD arr4 ( FORMONLY.tab401 THRU FORMONLY.tab403 )
