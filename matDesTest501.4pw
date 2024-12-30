@@ -108,11 +108,11 @@
     <Package binaryName="matDesTest501" dependencies="18736,14000,1103685783" description="Material Design Test" id="495258708" label="matDesTest501" platform="Genero Application Server">
       <DynamicProperty name="packageId" value="matDesTest"/>
       <DynamicProperty name="packageLabel" value="matDesTest"/>
-      <Directory destinationDirectory="$(RootDir)/bin" excludedFiles="Test.42r" includedFiles="*.42?" label="Binaries" sourceDirectory="$(ProjectDir)/bin501"/>
+      <Directory excludedFiles="Test.42r" includedFiles="*.42?" label="Binaries" sourceDirectory="$(ProjectDir)/bin501"/>
       <Directory destinationDirectory="$(RootDir)/pics" label="Images" sourceDirectory="$(ProjectDir)/pics"/>
       <Directory includedFiles="*.4ad,*.4st,*.4tm,*.4tb,*.4sm,*.42s,*.iem,*.txt" label="Resources" sourceDirectory="$(ProjectDir)/etc"/>
-      <Directory destinationDirectory="$(RootDir)/webcomponent" label="Webcomponents" sourceDirectory="$(ProjectDir)webcomponent"/>
-      <Directory destinationDirectory="$(RootDir)/etc" includedFiles="matDesTest.xcf" label="XCF" sourceDirectory="$(ProjectDir)/etc"/>
+      <Directory destinationDirectory="$(RootDir)/webcomponents" label="Webcomponents" sourceDirectory="$(ProjectDir)/webcomponents"/>
+      <Directory includedFiles="matDesTest.xcf" label="XCF" sourceDirectory="$(ProjectDir)/etc"/>
     </Package>
     <Package binaryName="matDesTest_GWA" dependencies="1103685783,14000,18736" description="Genero Web Application Package" id="-232182921" label="matDesTest_GWA" platform="Genero Web Application" rootDirectory="$(ProjectDir)/bin501">
       <DynamicProperty name="mainModule" value="matDesTest"/>
