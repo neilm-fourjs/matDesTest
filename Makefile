@@ -3,7 +3,7 @@ export BASE=$(PWD)
 export FGLIMAGEPATH=$(BASE):$(BASE)/pics:$(BASE)/pics/gmdi.txt
 export FGLRESOURCEPATH=../etc
 export FJS_GL_DBGLEV=3
-export FGLGBCDIR=$(FGLDIR)/web_utilities/gbc/gbc-clean
+#export FGLGBCDIR=$(FGLDIR)/web_utilities/gbc/gbc-clean
 export FGLPROFILE=$(BASE)/etc/fglprofile
 WC=./webcomponents
 PROG=matDesTest
@@ -42,7 +42,7 @@ gar.deploy: distbin/$(PROG)$(GENVER).gar
 	cd distbin && ./gar_deploy.sh $(PROG)$(GENVER)
 
 gwa.build: all
-	$(GWABUILDTOOL) -v --main-module $(MAIN) --output-dir $(GWABIN) --gbc $(FGLGBCDIR) --program-dir ./bin$(GENVER) --extra-asset ./etc/fglprofile --extra-asset ./etc/colour_names.txt --extra-asset ./etc/matDesTest.4st --extra-asset ./etc/default.4ad --webcomponent $(WC)/clock --webcomponent $(WC)/dclock --webcomponent $(WC)/colour --title "Material Design Test V1" 
+	$(GWABUILDTOOL) -v --main-module $(MAIN) --output-dir $(GWABIN) --gbc $(FGLGBCDIR) --program-dir ./bin$(GENVER) --extra-asset ./etc/colour_names.txt --extra-asset ./etc/matDesTest.4st --extra-asset ./etc/default.4ad --webcomponent $(WC)/clock --webcomponent $(WC)/dclock --webcomponent $(WC)/colour --title "Material Design Test V1" 
 gwa.run: gwa.build
 	cd $(GWABIN) && gwasrv index.html
 

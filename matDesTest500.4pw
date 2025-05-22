@@ -78,7 +78,7 @@
     </Language>
   </LanguageList>
   <PlatformList version="1.0"/>
-  <Group compilerOptions="-Dgen401" environment="value:FGLIMAGEPATH=../pics:../pics/gmdi.txt:.." id="75644415" label="Group" language="Genero (no link)" targetDirectory="$(ProjectDir)/bin500">
+  <Group compilerOptions="-Dgen401" environment="value:FGLGBCDIR=$(FGLDIR)//web_utilities/gbc/gbc-clean,value:FGLIMAGEPATH=../pics:../pics/gmdi.txt:.." id="75644415" label="Group" language="Genero (no link)" targetDirectory="$(ProjectDir)/bin500">
     <Library binaryName="etc" dependencies="1986" id="14000" label="etc">
       <File filePath="etc/colour_names.txt"/>
       <File filePath="etc/default.4ad"/>

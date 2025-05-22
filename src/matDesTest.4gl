@@ -11,7 +11,7 @@ IMPORT FGL g2_lib.g2_about
 
 CONSTANT C_PRGDESC = "Material Design Test"
 CONSTANT C_PRGAUTH = "Neil J.Martin"
-CONSTANT C_PRGVER  = "3.3"
+CONSTANT C_PRGVER  = "3.4"
 CONSTANT C_PRGICON = "logo_dark"
 CONSTANT C_IMG     = "smiley"
 
@@ -114,10 +114,11 @@ MAIN
 	DISPLAY SFMT("%1 %2 %3 %4", ui.Interface.getFrontEndName(), ui.Interface.getFrontEndVersion(), ui.Interface.getUniversalClientName(),  ui.Interface.getUniversalClientVersion()) TO client
 	-- various attempt to bring listView page to front in folder, all FAIL!
 	CALL ui.Window.getCurrent().getForm().ensureElementVisible("tab2info")
-	DISPLAY ARRAY l_listView TO arr2.*
-		BEFORE ROW EXIT DISPLAY
-	END DISPLAY
-	CALL ui.Interface.refresh()
+
+--	DISPLAY ARRAY l_listView TO arr2.*
+--		BEFORE ROW EXIT DISPLAY
+--	END DISPLAY
+--	CALL ui.Interface.refresh()
 	---------------------------------------------------------
 
 	DIALOG ATTRIBUTE(UNBUFFERED, FIELD ORDER FORM)
@@ -138,8 +139,10 @@ MAIN
 			AFTER FIELD fld6
 				CALL DIALOG.setFieldValue("col_hex", getColour(l_rec.fld6))
 		END INPUT
+
 		DISPLAY ARRAY l_arr TO arr1.* --ATTRIBUTES(ACCEPT=FALSE)
 		END DISPLAY
+
 		DISPLAY ARRAY l_listView TO arr2.*
 			BEFORE ROW
 				DISPLAY SFMT("On row %1 of %2", DIALOG.getCurrentRow("arr2"), l_listView.getLength()) TO tab2info
@@ -148,10 +151,12 @@ MAIN
 			ON DELETE
 				CALL g2_core.g2_winMessage("Delete", "Delete not available!", "exclamation")
 		END DISPLAY
+
 		DISPLAY ARRAY l_listView TO arr3.*
 			BEFORE ROW
 				DISPLAY SFMT("On row %1 of %2", DIALOG.getCurrentRow("arr3"), l_listView.getLength()) TO tab3info
 		END DISPLAY
+
 		DISPLAY ARRAY m_colours TO arr4.*
 		END DISPLAY
 
@@ -194,6 +199,11 @@ MAIN
 			CALL gbc_replaceHTML("logocell", "<img src='./resources/img/logo_dark.png'/>")
 		ON ACTION lightlogo
 			CALL gbc_replaceHTML("logocell", "<img src='./resources/img/logo_light.png'/>")
+
+		ON ACTION customfc
+			CALL customfc()
+		ON ACTION customfc2
+			CALL customfc2()
 
 		ON ACTION pg
 			CALL pg(DIALOG.getForm(), 0)
@@ -580,3 +590,30 @@ FUNCTION readFile( l_file STRING ) RETURNS(STRING)
 	LOCATE l_txt IN FILE l_file
 	RETURN l_txt
 END FUNCTION
+--------------------------------------------------------------------------------
+FUNCTION customfc()
+	DEFINE l_ret STRING
+	DEFINE l_itm STRING
+	DEFINE l_val STRING
+	LET l_itm = "lab3"
+	LET l_val = "DateEdit2:"
+	TRY
+		CALL ui.Interface.frontCall("mymodule","replace_html2",[l_itm, l_val],[l_ret])
+	CATCH
+		CALL fgl_winMessage("Error",SFMT("Frontcall mymodule.replace_html failed %1",ERR_GET(STATUS)), "exclamation")
+	END TRY
+	DISPLAY SFMT("Ret: %1", l_ret)
+END FUNCTION
+--------------------------------------------------------------------------------
+FUNCTION customfc2()
+	DEFINE l_ret STRING
+	TRY
+		CALL ui.Interface.frontCall("shopritecustom","selectPort",[],[l_ret])
+	CATCH
+		CALL fgl_winMessage("Error",SFMT("Frontcall shopritecustom.selectPort failed %1",ERR_GET(STATUS)), "exclamation")
+		RETURN
+	END TRY
+	CALL fgl_winMessage("Info", SFMT("Ret: %1", l_ret), "information")
+END FUNCTION
+
+

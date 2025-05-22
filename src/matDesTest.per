@@ -22,6 +22,8 @@ ACTION DEFAULTS
 	ACTION clipshow ( TEXT="Clipboard Show", IMAGE="paste" )
 	ACTION asterisk ( TEXT="Asterisk", ACCELERATOR="*" )
 	ACTION asterisk2 ( TEXT="Asterisk2", ACCELERATOR="Shift-8" )
+	ACTION customfc ( TEXT="Custom FrontCall", IMAGE="circle" )
+	ACTION customfc2 ( TEXT="Custom FrontCall 2", IMAGE="circle" )
 END -- AD
 
 TOPMENU
@@ -55,6 +57,8 @@ TOPMENU
 		COMMAND sleep
 		COMMAND clipset
 		COMMAND clipshow
+		COMMAND customfc
+		COMMAND customfc2
 	END -- opt
 	GROUP help (TEXT="Help")
 		COMMAND about
