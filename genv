@@ -1,24 +1,26 @@
 
 
+export GENVER=${1:-501}
+if [ -d /opt/Genero ]; then
+	FJSDIR=/opt/Genero
+fi
+if [ -d /opt/Fourjs ]; then
+	FJSDIR=/opt/fourjs
+fi
+
+if [ -z "$FJSDIR" ]; then
+	echo "Can't find Genero products in /opt/Genero or /opt/fourjs!"	
+	return
+fi
+
 DEFPATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/var/lib/snapd/snap/bin:~/bin:/opt/informix/bin
 
 unset PATH
 
-export GENVER=${1:-500}
-source /opt/Genero/gst$GENVER/envgenero
-source /opt/Genero/fgl$GENVER/envcomp
-source /opt/Genero/gas$GENVER/envas
+source $FJSDIR/gst$GENVER/envgenero
+source $FJSDIR/fgl$GENVER/envcomp
+source $FJSDIR/gas$GENVER/envas
 export PATH=$PATH:$DEFPATH
 
-if [ "$GENVER" = "321" ]; then
-	export FGLSERVER=$(who -m | cut -d'(' -f2 | cut -d')' -f1)
-fi
-if [ "$GENVER" = "401" ]; then
-	export FGLSERVER=$(who -m | cut -d'(' -f2 | cut -d')' -f1):4
-fi
-if [ "$GENVER" = "500" ]; then
-	export FGLSERVER=$(who -m | cut -d'(' -f2 | cut -d')' -f1):5
-fi
-
+echo "Genero in $FJSDIR FGLSERVER = $FGLSERVER"
 fglrun -V | head -1
-httpdispatch -V | head -1
